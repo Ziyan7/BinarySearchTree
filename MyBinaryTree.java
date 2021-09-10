@@ -2,44 +2,98 @@ package BinarySearchTree;
 
 public class MyBinaryTree<K extends Comparable<K>> {
 	private MyBinaryNode<K> root;
-
-	public void add(K key) {
-		this.root = this.addRecursively(root, key);
+	/**
+	 * method to add a key to the binary search tree
+	 * @param key element to be added
+	 */
+	public void add(K key)
+	{
+		this.root=this.addRecursively(root,key);
 	}
-
-	private MyBinaryNode<K> addRecursively(MyBinaryNode<K> current, K key) {
-		if (current == null)
+	/**
+	 * method containing steps of insertion
+	 * @param current node where the element is to be added
+	 * @param key element to be added
+	 * @return root of the tree
+	 */
+	private MyBinaryNode<K> addRecursively(MyBinaryNode<K> current,K key)
+	{
+		if(current==null)
 			return new MyBinaryNode<>(key);
-		int compareResult = key.compareTo(current.key);
-		if (compareResult == 0)
-			return current;
-		if (compareResult < 0) {
-			current.left = addRecursively(current.left, key);
-		} else {
-			current.right = addRecursively(current.right, key);
+		int compareResult=key.compareTo(current.key);
+		if(compareResult==0) return current;
+		if(compareResult<0)
+		{
+			current.left=addRecursively(current.left,key);
+		}
+		else
+		{
+			current.right=addRecursively(current.right,key);
 		}
 		return current;
 	}
-
-	public int getSize() {
+	/**
+	 * method to get the number of elements
+	 * @return size of the tree
+	 */
+	public int getSize()
+	{
 		return this.getSizeRecursive(root);
 	}
-
-	private int getSizeRecursive(MyBinaryNode<K> current) {
-		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) + this.getSizeRecursive(current.right);
+	/**
+	 * Method which actually consisting of steps
+	 * @param current current root
+	 * @return size of the tree
+	 */
+	private int getSizeRecursive(MyBinaryNode<K> current)
+	{
+		return current==null?0:1+this.getSizeRecursive(current.left)+this.getSizeRecursive(current.right);
 	}
-
-	public void getNodes() {
+	
+	//method to print the elements 
+	public void getNodes()
+	{
 		this.printNodes(root);
 	}
-
-	private void printNodes(MyBinaryNode<K> root) {
-		if (root == null)
+	/**
+	 * prints the elements in Inorder fashion
+	 * @param root root of the tree
+	 */
+	private void printNodes(MyBinaryNode<K> root) 
+	{
+		if(root==null)
 			return;
 		printNodes(root.left);
-		System.out.print(root.key + " ");
-		printNodes(root.right);
-
+		System.out.print(root.key+" ");
+		printNodes(root.right);	
+	}
+	/**
+	 * method to search for a key
+	 * @param key element to be searched
+	 */
+	public void search(K key)
+	{
+		this.searchNodes(key,root);				
+	}
+	/**
+	 * actual method to implement search operation
+	 * @param key element to be searched
+	 * @param root position of last search
+	 */
+	private void searchNodes(K key,MyBinaryNode<K> root)
+	{
+		if(root==null)
+		{
+			System.out.println("Key not found");
+			return;
+		}
+		int compareResult=key.compareTo(root.key);
+		if(compareResult==0)
+			System.out.println(key+" is found");
+		else if(compareResult<0)
+			searchNodes(key,root.left);
+		else
+			searchNodes(key, root.right);
 	}
 
 }

@@ -1,5 +1,6 @@
 package BinarySearchTree;
 
+//Implementation of binary search tree and different test cases
 public class MyBinaryTreeTest {
 
 	public static void main(String[] args) {
@@ -17,8 +18,10 @@ public class MyBinaryTreeTest {
 		myBinaryTree.add(65);
 		myBinaryTree.add(63);
 		myBinaryTree.add(67);
-		System.out.println("size of tree is " + myBinaryTree.getSize());
+		System.out.println("The size of tree is " + myBinaryTree.getSize());
 		myBinaryTree.getNodes();
+		System.out.println();
+		myBinaryTree.search(100);
 
 	}
 
