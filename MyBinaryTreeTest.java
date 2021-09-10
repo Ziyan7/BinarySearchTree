@@ -1,14 +1,24 @@
 package BinarySearchTree;
 
-
 public class MyBinaryTreeTest {
 
 	public static void main(String[] args) {
-		MyBinaryTree<Integer> myBinaryTree=new MyBinaryTree<Integer>();
-		myBinaryTree.add(56); //adding 56 as root node
-		myBinaryTree.add(30); //adding 30 as left child
-		myBinaryTree.add(70); //adding 70 as right child
-		System.out.println("size of tree is "+myBinaryTree.getSize());
+		MyBinaryTree<Integer> myBinaryTree = new MyBinaryTree<Integer>();
+		myBinaryTree.add(56);
+		myBinaryTree.add(30);
+		myBinaryTree.add(70);
+		myBinaryTree.add(22);
+		myBinaryTree.add(40);
+		myBinaryTree.add(11);
+		myBinaryTree.add(3);
+		myBinaryTree.add(16);
+		myBinaryTree.add(60);
+		myBinaryTree.add(95);
+		myBinaryTree.add(65);
+		myBinaryTree.add(63);
+		myBinaryTree.add(67);
+		System.out.println("size of tree is " + myBinaryTree.getSize());
+		myBinaryTree.getNodes();
 
 	}
 
